@@ -12,8 +12,8 @@ y = np.array([5, 8, 11, 13, 15, 17, 19, 22, 24, 26])
 X = np.vstack((X1, X2, np.ones(X1.shape[0]))).T
 
 # Calculate the coefficients using OLS
-coefficients = np.linalg.inv(X.T.dot(X)).dot(X.T).dot(y)
 
+coefficients = np.linalg.pinv(X).dot(y)
 # Extract the coefficients
 coef1, coef2, intercept = coefficients[0], coefficients[1], coefficients[2]
 
